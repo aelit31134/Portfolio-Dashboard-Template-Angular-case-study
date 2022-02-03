@@ -1,0 +1,50 @@
+
+<div class="center-content">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Register</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div [formGroup] = "registerForm" (ngSubmit) = "register()">
+            <mat-form-field class="example-full-width">
+                <mat-label>Name</mat-label>
+                <input formControlName = "name" type="text" matInput placeholder="text" value="" >
+                <mat-icon matSuffix>supervised_user_circle</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input formControlName = "email" type="email" matInput placeholder="Email" value="" >
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Phone number</mat-label>
+                <input formControlName = "phone" type="number" matInput placeholder="Number" value="" >
+                <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+  
+            <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input formControlName = "pass" type="password" matInput placeholder="Password">
+              <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Confirm Password</mat-label>
+              <input formControlName = "conpass" type="password" matInput placeholder="Confirm Password">
+              <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
+            <button mat-button color="primary" (click)="register()">Register</button>
+        </div>
+  
+      </mat-card-content>
+
+      <mat-card-content>
+        <p>
+            <a routerLink="/login">Already registered? Sign in here</a>
+        </p>
+    </mat-card-content>
+  
+    </mat-card>
+  </div>
