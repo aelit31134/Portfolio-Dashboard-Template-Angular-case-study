@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { TokenStorageService } from '../services/token-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -10,34 +12,55 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  public loginForm!: FormGroup
+  public loginForm!: FormGroup;
+  loginval = false;
 
-  constructor(private formBuilder : FormBuilder, private http : HttpClient, private router : Router) { }
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private formBuilder : FormBuilder, private http : HttpClient, private router : Router) { }
 
   ngOnInit() {
 
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+    }
+
     this.loginForm = this.formBuilder.group({
-      email:[''],
-      pass:['']
+      username:['', Validators.required],
+      pass:['', Validators.required]
     })
   }
 
   login(){
-    this.http.get<any>("http://localhost:3000/register")
-    .subscribe(res=>{
-      const user = res.find((a:any)=>{
-        return a.email === this.loginForm.value.email && a.pass === this.loginForm.value.pass
-      });
-      if(user){
-        alert("Login Successful");
-        this.loginForm.reset();
-        this.router.navigate(['home/dashboard']);
-      }else{
-        alert("User not found, please register");
+    if(!this.loginForm.valid){
+      this.loginval = true;
+    }else{
+    const { username, pass } = this.loginForm.value;
+
+    this.authService.login(username, pass).subscribe(
+      data => {
+        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveUser(data);
+
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.redirect();
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isLoginFailed = true;
       }
-    },err=>{
-      alert("Something went wrong!");
-    })
+    );
   }
+  }
+  redirect(){
+    if(this.isLoggedIn){
+      setTimeout(()=>{
+        this.router.navigate(['/home/dashboard']);
+      },1000);
+    }
+    }
 
 }

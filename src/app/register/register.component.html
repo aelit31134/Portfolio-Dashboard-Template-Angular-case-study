@@ -3,38 +3,61 @@
     <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title>Register</mat-card-title>
+        <p *ngIf="isSignUpFailed">
+          Registration failed
+          <br>
+          {{errorMessage}}
+        </p>
+        <p *ngIf="isSuccessful" class="success">
+          Registration Successful
+        </p>
       </mat-card-header>
       <mat-card-content>
         <div [formGroup] = "registerForm" (ngSubmit) = "register()">
             <mat-form-field class="example-full-width">
                 <mat-label>Name</mat-label>
-                <input formControlName = "name" type="text" matInput placeholder="text" value="" >
-                <mat-icon matSuffix>supervised_user_circle</mat-icon>
+                <input formControlName = "name" type="text" matInput placeholder="text" value="" (click)="[registerval=false, passmatch=false]">
+                <mat-icon matSuffix>name</mat-icon>
+                <mat-error *ngIf="registerForm.hasError('required','name')">*Name is required</mat-error>
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
+              <mat-label>Username</mat-label>
+              <input formControlName = "username" type="text" matInput placeholder="text" value="" (click)="[registerval=false, passmatch=false]">
+              <mat-icon matSuffix>supervised_user_circle</mat-icon>
+              <mat-error *ngIf="registerForm.hasError('required','username')">*Username is required</mat-error>
+          </mat-form-field>
+
+            <mat-form-field class="example-full-width">
               <mat-label>Email</mat-label>
-              <input formControlName = "email" type="email" matInput placeholder="Email" value="" >
+              <input formControlName = "email" type="email" matInput placeholder="Email" value="" (click)="[registerval=false, passmatch=false]">
               <mat-icon matSuffix>email</mat-icon>
+              <mat-error *ngIf="registerForm.hasError('required','email')">*Email is required</mat-error>
+              <mat-error *ngIf="registerForm.hasError('email','email')">*Enter a valid email</mat-error>
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
                 <mat-label>Phone number</mat-label>
-                <input formControlName = "phone" type="number" matInput placeholder="Number" value="" >
+                <input formControlName = "phone" type="number" matInput placeholder="Number" value="" (click)="[registerval=false, passmatch=false]">
                 <mat-icon matSuffix>phone</mat-icon>
+                <mat-error *ngIf="registerForm.hasError('required','phone')">*Mobile number is required</mat-error>
+                <mat-error *ngIf="registerForm.hasError('pattern','phone')">*Please enter a 10 digit mobile number registered in India</mat-error>
             </mat-form-field>
-  
             <mat-form-field class="example-full-width">
               <mat-label>Password</mat-label>
-              <input formControlName = "pass" type="password" matInput placeholder="Password">
+              <input formControlName = "pass" type="password" matInput placeholder="Password" (click)="[registerval=false, passmatch=false]">
               <mat-icon matSuffix>vpn_key</mat-icon>
+              <mat-error *ngIf="registerForm.hasError('required','pass')">*Password is required</mat-error>
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
               <mat-label>Confirm Password</mat-label>
-              <input formControlName = "conpass" type="password" matInput placeholder="Confirm Password">
+              <input formControlName = "conpass" type="password" matInput placeholder="Confirm Password" (click)="[registerval=false, passmatch=false]" (input)="conPass()">
               <mat-icon matSuffix>vpn_key</mat-icon>
+              <mat-error *ngIf="registerForm.hasError('required','conpass')">*Please enter the password again to confirm</mat-error>
+              <p *ngIf="passmatch">*The passwords do not match</p>
             </mat-form-field>
+            <p *ngIf="registerval">Please fill all the required fields to continue</p>
             <button mat-button color="primary" (click)="register()">Register</button>
         </div>
   

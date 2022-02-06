@@ -5,19 +5,25 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PostsComponent } from './modules/posts/posts.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './services/auth.guard';
+import { AuthLoginGuard } from './services/auth-login.guard';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'login', component: LoginComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full', canActivate: [AuthLoginGuard]},
+  {path: 'home', component: HomeComponent, canActivate: [AuthLoginGuard]},
+  {path: 'login', component: LoginComponent, canActivate: [AuthLoginGuard]},
   {path: 'register', component: RegisterComponent},
-  {path: 'home',
+  {path: 'main',
   component: DefaultComponent,
   children: [{
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
   }, {
     path: 'posts',
-    component: PostsComponent
+    component: PostsComponent,
+    canActivate: [AuthGuard]
   }]
 }];
 

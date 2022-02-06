@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-default',
@@ -7,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DefaultComponent implements OnInit {
 
+
   sideBarOpen = true;
 
-  constructor() { }
+  constructor(private tokenStorageService: TokenStorageService) { }
 
-  ngOnInit() { }
-
+  ngOnInit() { 
+    
+  }
 
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen;

@@ -1,8 +1,8 @@
 <mat-nav-list>
     <div class="profile-card">
         <div class="header">
-            <h2>Aayush Goel</h2>
-            <h4>aayush@xyz.in</h4>
+            <h2>{{name}}</h2>
+            <h4>{{email}}</h4>
         </div>
         <img [src]="imgSrc" [alt]="imgAlt">
     </div>
@@ -11,8 +11,8 @@
 
     <h2 matSubheader>Pages</h2>
 
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/home/dashboard">Dashboard</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/home/posts">Posts</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/main/dashboard">Dashboard</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/main/posts">Posts</a>
 
     <mat-divider></mat-divider>
 
