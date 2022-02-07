@@ -11,6 +11,31 @@ Run `ng serve --port 8081` after integrating with backend as CORS is configured 
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
+### Modules Used
+- Angular Material
+- Angular Angular Forms Module
+- Angular Reactive Forms
+- HTTP Client Module
+- Highcharts Module
+- Flex-layout Module
+- Router Module
+
+
+### Installing the Required Modules
+
+For adding angular material
+Run `ng add @angular/material` command
+
+For adding Highcharts
+Run `npm install highcharts-angular --save` command
+Run  `npm install highcharts --save` command
+
+For adding Flex-layout
+Run `npm install @angular/flex-layout --save` command
+
+For adding CDK
+Run `npm install @angular/cdk --save` command
+
 ### Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
