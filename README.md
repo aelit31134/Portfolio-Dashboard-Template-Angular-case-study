@@ -29,11 +29,11 @@ Run `node init` to initialize the project and create configuration files
 Run `npm install express sequelize mysql2 cors jsonwebtoken bcryptjs --save` to install all the required modules
 
 - Required Modules
- * express
- * equelize
- * mysql2
- * jsonwebtoken
- * bcryptjs
+  * express
+  * equelize
+  * mysql2
+  * jsonwebtoken
+  * bcryptjs
 
 ### Running the program
 
