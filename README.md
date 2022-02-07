@@ -1,7 +1,8 @@
 # Portfolio-Dashboard-Template-Angular-case-study
 A simple Dashboard template built in angular, can act as a base for building any type of dashboard application using angular.
 
-##Front-End
+## Front-end
+--
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
