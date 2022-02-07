@@ -1,0 +1,52 @@
+section{
+    height: 100vh;
+}
+
+.container-home{
+    height: inherit;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.container-home::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 85vh;
+    row-gap: 50px;
+}
+
+.content .heading h1{
+    font-size: 4rem;
+    position: relative;
+    z-index: 10;
+    color: #d8d8d8;
+    text-align: center;
+}
+
+.content .buttons{
+    display: flex;
+    justify-content: center;
+    column-gap: 50px;
+}
+
+.content .buttons button{
+    font-size: 2.5rem;
+    padding: 15px 50px;
+}
+
+.content .buttons button:hover{
+    background-color: #3ee8c4;
+}

@@ -1,0 +1,25 @@
+mat-toolbar{
+  color: white;
+  background-color: rgb(102, 102, 255);
+}
+
+mat-toolbar mat-toolbar-row >button + span{
+  padding-left: 20px;
+  font-size: 1.4rem;
+}
+
+.menu{
+  font-size: 2rem;
+}
+
+mat-icon{
+  transition: 0.3s;
+}
+
+mat-icon:hover{
+  color: #000;
+}
+
+ul li {
+  list-style: none;
+}
