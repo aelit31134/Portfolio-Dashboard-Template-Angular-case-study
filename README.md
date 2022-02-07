@@ -23,17 +23,17 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ### Installing the Required Modules
 
-For adding angular material
+#### For adding angular material
 Run `ng add @angular/material` command
 
-For adding Highcharts
+#### For adding Highcharts
 Run `npm install highcharts-angular --save` command
 Run  `npm install highcharts --save` command
 
-For adding Flex-layout
+#### For adding Flex-layout
 Run `npm install @angular/flex-layout --save` command
 
-For adding CDK
+#### For adding CDK
 Run `npm install @angular/cdk --save` command
 
 ### Build
