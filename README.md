@@ -1,6 +1,9 @@
 # Portfolio-Dashboard-Template-Angular-case-study
 A simple Dashboard template built in angular, can act as a base for building any type of dashboard application using angular.
 
+![Home](https://github.com/aelit31134/Portfolio-Dashboard-Template-Angular-case-study/blob/main/screenshots/UI/home.png)
+![Dashboard](https://github.com/aelit31134/Portfolio-Dashboard-Template-Angular-case-study/blob/main/screenshots/UI/dashboard.png)
+
 ## Front-end
 ### Development server
 
@@ -20,6 +23,8 @@ Run `ng generate component component-name` to generate a new component. You can 
 - Flex-layout Module
 - Router Module
 
+### Component Flow
+![Component Flow](https://github.com/aelit31134/Portfolio-Dashboard-Template-Angular-case-study/blob/main/screenshots/flow-diagram.png)
 
 ### Installing the Required Modules
 
